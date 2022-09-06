@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-09-04T08:02:25 IST" name="Default suite" finished-at="2022-09-04T08:02:54 IST" duration-ms="28833">
+    <groups>
+    </groups>
+    <test started-at="2022-09-04T08:02:25 IST" name="Default test" finished-at="2022-09-04T08:02:54 IST" duration-ms="28833">
+      <class name="testcases.TC_HomePage_009">
+        <test-method is-config="true" signature="testSetUp()[pri:0, instance:testcases.TC_HomePage_009@4c371370]" started-at="2022-09-04T08:02:25 IST" name="testSetUp" finished-at="2022-09-04T08:02:25 IST" duration-ms="28" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetUp -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:testcases.TC_HomePage_009@4c371370]" started-at="2022-09-04T08:02:25 IST" name="setUpDriver" finished-at="2022-09-04T08:02:31 IST" duration-ms="5772" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="checkForCouponAppliedOnBasket()[pri:0, instance:testcases.TC_HomePage_009@4c371370]" started-at="2022-09-04T08:02:31 IST" name="checkForCouponAppliedOnBasket" finished-at="2022-09-04T08:02:54 IST" duration-ms="22579" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkForCouponAppliedOnBasket -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testcases.TC_HomePage_009@4c371370]" started-at="2022-09-04T08:02:54 IST" name="closeBrowser" finished-at="2022-09-04T08:02:54 IST" duration-ms="380" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- testcases.TC_HomePage_009 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
