@@ -1,5 +1,7 @@
 package PageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +27,12 @@ public class ProceedToCheckOutPage
 	
 	@FindBy(xpath = "//td[@data-title='Coupon: krishnasakinala']/span[@class='woocommerce-Price-amount amount']")
 	WebElement coupon_value;
+	
+	@FindBy(xpath="//table[@class='shop_table shop_table_responsive cart']/tbody/tr[1]/td")
+	List<WebElement> addedItemfirstrowlist;
+	
+	@FindBy(xpath = "//div[@class='woocommerce-message']")
+	WebElement removeProductMessagElement;
 	
 	
 	
@@ -52,6 +60,26 @@ public class ProceedToCheckOutPage
 			e.printStackTrace();
 		}
 		return coupon_value.getText().replace("₹","");
+	}
+	public boolean isCouponDisplayed()
+	{
+		return coupon_value.isDisplayed();
+	}
+	public List<WebElement> getFirstRowList()
+	{
+		return addedItemfirstrowlist;
+		
+	}
+	public String getRemoveproductMessage()
+	{
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(removeProductMessagElement.isDisplayed());
+		return removeProductMessagElement.getText();
 	}
 
 }

@@ -33,6 +33,9 @@ public class HomePage
 	@FindBy(xpath="//a[@href='https://practice.automationtesting.in/product/selenium-ruby/']")
 	WebElement rubyBook;
 	
+	@FindBy(xpath="//a[@href='https://practice.automationtesting.in/product/mastering-javascript/']")
+	WebElement javaScriptbook;
+	
 	public int getSliderCount()
 	{
 		return NoOfSliders.size();
@@ -56,5 +59,16 @@ public class HomePage
 		 rubyBook.click();
 		 return new ProductAddToCartPage(lDriver);
 	}
-
+	public ProductAddToCartPage clickOnJavaScriptBook()
+	{
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		javaScriptbook.click();
+		return new ProductAddToCartPage(lDriver);
+		
+	}
 }
