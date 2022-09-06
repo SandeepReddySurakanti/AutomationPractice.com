@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.TC_HomePage_009">
+      <class name="testcases.TC_HomePage_011">
         <methods>
           <include name="setUpDriver"/>
           <include name="testSetUp"/>
           <include name="closeBrowser"/>
-          <include name="checkForCouponAppliedOnBasket"/>
+          <include name="checkForCouponNotAppliedOnLessThan450"/>
         </methods>
-      </class> <!-- testcases.TC_HomePage_009 -->
+      </class> <!-- testcases.TC_HomePage_011 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
