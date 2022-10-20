@@ -36,6 +36,9 @@ public class HomePage
 	@FindBy(xpath="//a[@href='https://practice.automationtesting.in/product/mastering-javascript/']")
 	WebElement javaScriptbook;
 	
+	@FindBy(xpath="//li[@id='menu-item-50']/a")
+	WebElement link_MyAccount;
+	
 	public int getSliderCount()
 	{
 		return NoOfSliders.size();
@@ -70,5 +73,11 @@ public class HomePage
 		javaScriptbook.click();
 		return new ProductAddToCartPage(lDriver);
 		
+	}
+	public LoginPage clickOnMyAccount()
+	{
+		
+		link_MyAccount.click();
+		return new LoginPage(lDriver);
 	}
 }

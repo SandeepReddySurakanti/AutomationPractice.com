@@ -1,5 +1,7 @@
 package Base;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -32,10 +34,14 @@ public class BaseClass
 			System.out.println("entered in chromedriver method");
 			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		}
 		else if (ConfigUtil.getBowser().equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver=new FirefoxDriver();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		}
 					
 	}

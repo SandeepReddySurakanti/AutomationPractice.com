@@ -1,8 +1,13 @@
 package testcases;
 
+import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,7 +26,7 @@ public class TC_HomePage_011 extends BaseClass
 	ProceedToCheckOutPage proceedToCheckOutPage;
 	
 	@Test
-	public void checkForCouponNotAppliedOnLessThan450() throws InterruptedException
+	public void checkForRemoveItem() throws InterruptedException
 	{
 		driver.get(ConfigUtil.getBaseURL());
 		homePage=new HomePage(driver);
@@ -42,12 +47,30 @@ public class TC_HomePage_011 extends BaseClass
 		//get product name in list
 		String productName=firstRowList.get(2).getText();
 		System.out.println("The product name is : "+productName);
+		//retrieving menulist price before remove
+		String beforeMenuListPrice=proceedToCheckOutPage.getmenuListPrice();
+		//retrieving total price of product
+		String productTotalPriceString=firstRowList.get(5).getText().replace("₹", "");
+		System.out.println("the product total price is :"+productTotalPriceString);
+
 		//click on remove product
 		firstRowList.get(0).click();
 		
-		String removeProductMessage=proceedToCheckOutPage.getRemoveproductMessage();
-		System.out.println("The message is:-->"+removeProductMessage);
 		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10000));
+		boolean b= wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//div[@class='woocommerce-message']"), productName+" removed"));
+		Assert.assertTrue(b);	
+		Thread.sleep(2000);
+		String afterMenuListPrice= proceedToCheckOutPage.getmenuListPrice();
+		System.out.println("before menulist price is :"+beforeMenuListPrice);		
+		System.out.println("ater menulist price is :"+afterMenuListPrice);		
+		float exp=Float.parseFloat(beforeMenuListPrice)-Float.parseFloat(afterMenuListPrice);
+		System.out.print("exp price is :"+exp);
+		System.out.println("---->"+productTotalPriceString.replaceAll("₹", ""));
+		Assert.assertEquals(exp,Float.parseFloat(productTotalPriceString));
+		
+		
+	
 		
 	}
 	
