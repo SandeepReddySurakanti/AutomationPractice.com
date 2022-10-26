@@ -1,5 +1,6 @@
 package PageObjects;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -7,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.github.dockerjava.api.command.PullImageCmd;
 
@@ -76,8 +79,9 @@ public class HomePage
 	}
 	public LoginPage clickOnMyAccount()
 	{
-		
-		link_MyAccount.click();
+		WebDriverWait wait=new WebDriverWait(lDriver, Duration.ofSeconds(15));
+	WebElement myAccountLinkElement=	wait.until(ExpectedConditions.elementToBeClickable(link_MyAccount));
+		myAccountLinkElement.click();
 		return new LoginPage(lDriver);
 	}
 }

@@ -18,10 +18,16 @@ public class UserHomePage
 	@FindBy(xpath = "//a[@href='https://practice.automationtesting.in/my-account/customer-logout/' and text()='Logout']")
 	WebElement link_Logout;
 	
-	
+	@FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']//strong")
+	WebElement txt_Usernam;
 	public void clickOnLogout()
 	{
 		link_Logout.click();
+	}
+	public String getUsername()
+	{
+		return txt_Usernam.getText();
+		
 	}
 
 }

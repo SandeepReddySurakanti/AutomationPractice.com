@@ -23,6 +23,14 @@ public class LoginPage
 	@FindBy(xpath = "//input[@name='login']")
 	WebElement btn_Login;
 	
+	@FindBy(id="reg_email")
+	WebElement reg_email;
+	
+	@FindBy(id="reg_password")
+	WebElement reg_password;
+	
+	@FindBy(xpath = "//input[@name='register']")
+	WebElement btn_register;
 	public void enterUsername(String uname) 
 	{
 		txtBox_username.clear();
@@ -40,5 +48,21 @@ public class LoginPage
 		btn_Login.click();
 		
 	}
-
+	public void enterEmailforRegistration(String email)
+	{
+		reg_email.clear();
+		reg_email.sendKeys(email);
+		
+	}
+	public void enterPasswornForRegistraion(String pswd) {
+		reg_password.clear();
+		reg_password.sendKeys(pswd);
+		
+	}
+	public UserHomePage ClickOnRegisterButton()
+	{
+		btn_register.click();
+		return new UserHomePage(lDriver);
+		
+	}
 }
